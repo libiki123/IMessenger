@@ -19,7 +19,7 @@ class RegisterViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFit
         imageView.layer.masksToBounds = true
@@ -137,7 +137,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLayoutSubviews()
         scrollView.frame = view.bounds
         
-        let size = scrollView.width/4.5
+        let size = scrollView.width/3
         imageView.frame = CGRect(x: (scrollView.width - size)/2,
                                  y: 60,
                                  width: size,
@@ -171,11 +171,11 @@ class RegisterViewController: UIViewController {
         passwordField.resignFirstResponder()
         confirmPasswordField.resignFirstResponder()
         
-        guard let username = userNameField.text,
+        guard let userName = userNameField.text,
             let email = emailField.text,
             let password = passwordField.text,
             let confirmPassword = confirmPasswordField.text,
-            !username.isEmpty,
+            !userName.isEmpty,
             !email.isEmpty,
             !password.isEmpty,
             !confirmPassword.isEmpty,
@@ -187,20 +187,33 @@ class RegisterViewController: UIViewController {
         
         //firebase
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
+        DatabaseManager.shared.userExists(with: email, completion: {[weak self]exist in
+            guard let strongSelf = self else {
                 return
             }
             
-            let user = result.user
-            print("Created user: \(user)")
+            guard !exist else {
+                strongSelf.alertUserLoginError(message: "Looks like a user account for that email address already exists.")
+                return
+            }
+            
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: {authResult, error in
+                guard authResult != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatAppUser(userName: userName, emailAddress: email))
+                strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+            })
         })
+        
+        
     }
     
-    func alertUserLoginError() {
+    func alertUserLoginError(message: String = "Please enter alll information to create new account.") {
         let alert = UIAlertController(title: "Woops",
-                                      message: "Please enter alll information to create new account.",
+                                      message: message,
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss",
                                       style: .cancel, handler: nil))
