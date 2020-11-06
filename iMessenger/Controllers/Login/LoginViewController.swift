@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -73,8 +74,22 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    private let googleLoginButton = GIDSignInButton()
+    
+    private var loginObserver: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLoginNotification, object: nil, queue: .main,
+           using: { [weak self]_ in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.navigationController?.dismiss(animated: true, completion: nil)
+           })
+        
         title = "Login"
         view.backgroundColor = .white
         
@@ -82,6 +97,8 @@ class LoginViewController: UIViewController {
                                                             style: .done,
                                                             target: self,
                                                             action: #selector(RegisterTapped))
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         
         loginButton.addTarget(self,
                               action: #selector(loginButtonTapped),
@@ -97,6 +114,13 @@ class LoginViewController: UIViewController {
         scrollView.addSubview(passwordField)
         scrollView.addSubview(loginButton)
         scrollView.addSubview(fbLoginButton)
+        scrollView.addSubview(googleLoginButton)
+    }
+    
+    deinit {
+        if let observer = loginObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -124,7 +148,10 @@ class LoginViewController: UIViewController {
                                   y: loginButton.bottom + 20,
                                   width: scrollView.width - 60,
                                   height: 52)
-        
+        googleLoginButton.frame = CGRect(x: 30,
+                                  y: fbLoginButton.bottom + 10,
+                                  width: scrollView.width - 60,
+                                  height: 52)
     }
     
     @objc private func loginButtonTapped(){
@@ -210,7 +237,7 @@ extension LoginViewController: LoginButtonDelegate {
                 print("Fail to make FaceBoook graph request")
                 return
             }
-            
+            print("\(result)")
             guard let username = result["name"] as? String,
                   let email = result["email"] as? String else {
                 print("fail to get name and email from FB result")
