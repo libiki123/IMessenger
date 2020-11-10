@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -185,11 +188,16 @@ class RegisterViewController: UIViewController {
                 return
         }
         
-        //firebase
+        spinner.show(in: view)
         
+        //firebase
         DatabaseManager.shared.userExists(with: email, completion: {[weak self]exist in
             guard let strongSelf = self else {
                 return
+            }
+            
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss()
             }
             
             guard !exist else {
@@ -203,7 +211,25 @@ class RegisterViewController: UIViewController {
                     return
                 }
                 
-                DatabaseManager.shared.insertUser(with: ChatAppUser(userName: userName, emailAddress: email))
+                let chatUser = ChatAppUser(userName: userName, emailAddress: email)
+                DatabaseManager.shared.insertUser(with: chatUser, completion: {sucess in
+                    if sucess {
+                        guard let image = strongSelf.imageView.image, let data = image.pngData() else {
+                            return
+                        }
+                        
+                        let fileName = chatUser.profilePictureFileName
+                        StorageManager.shared.uploadProfilePicture(with: data, fileName: fileName, completion: {result in
+                            switch result {
+                            case .success(let downloadUrl):
+                                UserDefaults.standard.setValue(downloadUrl, forKey: "profile_picture_url")
+                                print(downloadUrl)
+                            case .failure(let error):
+                                print("Storage manager error: \(error)")
+                            }
+                        })
+                    }
+                })
                 strongSelf.navigationController?.dismiss(animated: true, completion: nil)
             })
         })
