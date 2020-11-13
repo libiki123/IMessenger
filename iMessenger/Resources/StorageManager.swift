@@ -22,14 +22,14 @@ final class StorageManager {
         storage.child("images/\(fileName)").putData(data, metadata: nil, completion: {metaData, error in
             guard error == nil else {
                 print("Fail to upload data to firebase for picture")
-                completion(.failure(StrageErrors.failedToUpload))
+                completion(.failure(StorageErrors.failedToUpload))
                 return
             }
             
             self.storage.child("images/\(fileName)").downloadURL(completion: {url, error in
                 guard let url = url else {
                     print("Fail to get download url")
-                    completion(.failure(StrageErrors.failedToDownloadUrl))
+                    completion(.failure(StorageErrors.failedToDownloadUrl))
                     return
                 }
                 
@@ -40,8 +40,22 @@ final class StorageManager {
         })
     }
     
-    public enum StrageErrors: Error {
+    public enum StorageErrors: Error {
         case failedToUpload
         case failedToDownloadUrl
     }
+    
+    public func downloadUrl(for path: String, completion: @escaping (Result<URL, Error>) -> Void){
+        let reference = storage.child(path)
+        
+        reference.downloadURL(completion: {url, error in
+            guard let url = url, error == nil else {
+                completion(.failure(StorageErrors.failedToDownloadUrl))
+                return
+            }
+            
+            completion(.success(url))
+        })
+    }
+    
 }

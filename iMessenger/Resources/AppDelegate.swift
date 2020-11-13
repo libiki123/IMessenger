@@ -57,11 +57,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         guard let email = user.profile.email,
-              let userName = user.profile.name
-        else {
-            
+              let userName = user.profile.name else {
             return
         }
+        
+        UserDefaults.standard.setValue(email, forKey: "email")
         
         DatabaseManager.shared.userExists(with: email, completion: {exists in
             if !exists {
