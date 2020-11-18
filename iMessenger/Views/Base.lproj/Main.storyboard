@@ -59,18 +59,23 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IAp-j2-PWN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yo8-SW-F4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="XM5-7L-OPy" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3n3-8N-qVd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="ELI-AL-yoC" kind="relationship" relationship="viewControllers" id="P1M-42-EOh"/>
                         <segue destination="oL1-P2-s8y" kind="relationship" relationship="viewControllers" id="ex1-u6-oLI"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yo8-SW-F4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-646" y="250"/>
         </scene>
