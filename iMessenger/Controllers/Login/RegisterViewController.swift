@@ -65,7 +65,7 @@ class RegisterViewController: UIViewController {
         let field = UITextField()
         field.autocapitalizationType = .none
         field.autocorrectionType = .no
-        field.returnKeyType = .done
+        field.returnKeyType = .continue
         field.layer.cornerRadius = 12
         field.layer.borderWidth = 1
         field.layer.borderColor =  UIColor.lightGray.cgColor
