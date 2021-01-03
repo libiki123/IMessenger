@@ -25,6 +25,7 @@
 		A1C8ADD3254D042A00BA11D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8ADD2254D042A00BA11D7 /* DatabaseManager.swift */; };
 		A1C8AE1925576C0800BA11D7 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8AE1825576C0800BA11D7 /* ChatViewController.swift */; };
 		A1C8AE38255A3B9900BA11D7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C8AE37255A3B9900BA11D7 /* StorageManager.swift */; };
+		A1CF493525A1414400D57572 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CF493425A1414400D57572 /* NewConversationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		A1C8ADD2254D042A00BA11D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A1C8AE1825576C0800BA11D7 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		A1C8AE37255A3B9900BA11D7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		A1CF493425A1414400D57572 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		CE09D17B713EB9586C4DD61C /* Pods-iMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.release.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				A1C7C84F2534163800914C8B /* LaunchScreen.storyboard */,
 				A1C7C84D2534163800914C8B /* Assets.xcassets */,
 				A132F85D256B76F0007A5BB3 /* ConversationTableViewCell.swift */,
+				A1CF493425A1414400D57572 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1C7C85F253425E700914C8B /* LoginViewController.swift in Sources */,
+				A1CF493525A1414400D57572 /* NewConversationCell.swift in Sources */,
 				A1C8ADD3254D042A00BA11D7 /* DatabaseManager.swift in Sources */,
 				A1C7C861253425FC00914C8B /* RegisterViewController.swift in Sources */,
 				A1C7C8492534163700914C8B /* ConversationsViewController.swift in Sources */,
