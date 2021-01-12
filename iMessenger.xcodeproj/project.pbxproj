@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A132F85E256B76F0007A5BB3 /* ConversationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A132F85D256B76F0007A5BB3 /* ConversationTableViewCell.swift */; };
+		A1C4C22025AE4DE500903AEE /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C4C21F25AE4DE400903AEE /* LocationPickerViewController.swift */; };
 		A1C7C8452534163700914C8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7C8442534163700914C8B /* AppDelegate.swift */; };
 		A1C7C8472534163700914C8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7C8462534163700914C8B /* SceneDelegate.swift */; };
 		A1C7C8492534163700914C8B /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C7C8482534163700914C8B /* ConversationsViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		5E66D5DE3D86D0F5E4E16170 /* Pods-iMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMessenger.debug.xcconfig"; path = "Target Support Files/Pods-iMessenger/Pods-iMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		A132F85D256B76F0007A5BB3 /* ConversationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewCell.swift; sourceTree = "<group>"; };
+		A1C4C21F25AE4DE400903AEE /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		A1C7C8412534163700914C8B /* iMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C7C8442534163700914C8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1C7C8462534163700914C8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				A1C7C8662534267C00914C8B /* NewConverationViewController.swift */,
 				A1C7C8682534269B00914C8B /* ProfileViewerViewController.swift */,
 				A1C8AE1825576C0800BA11D7 /* ChatViewController.swift */,
+				A1C4C21F25AE4DE400903AEE /* LocationPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				A1C8AE1925576C0800BA11D7 /* ChatViewController.swift in Sources */,
 				A1C7C8632534261900914C8B /* PhotoViewerViewController.swift in Sources */,
 				A1C8AE38255A3B9900BA11D7 /* StorageManager.swift in Sources */,
+				A1C4C22025AE4DE500903AEE /* LocationPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
