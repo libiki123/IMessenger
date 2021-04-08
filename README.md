@@ -6,10 +6,6 @@
 
 A beginner swift project to create a real time chat application in swift 5 using Firebase
 
-<img src="images/ss1.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss2.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss3.png" height='500' width='250'/>
-<img src="images/ss4.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss5.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss6.png" height='500' width='250'/>
-<img src="images/ss7.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss8.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss9.png" height='500' width='250'/>
-
 ## Features
 - Facebook Log in
 - Google Sign in
@@ -22,6 +18,11 @@ A beginner swift project to create a real time chat application in swift 5 using
 - Delete conversations
 - User profile
 - Dark mode support
+
+## Screenshots
+<img src="images/ss1.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss2.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss3.png" height='500' width='250'/>
+<img src="images/ss4.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss5.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss6.png" height='500' width='250'/>
+<img src="images/ss7.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss8.png" height='500' width='250'/>&nbsp;&nbsp;&nbsp;<img src="images/ss9.png" height='500' width='250'/>
 
 ## Libraries Used
 
